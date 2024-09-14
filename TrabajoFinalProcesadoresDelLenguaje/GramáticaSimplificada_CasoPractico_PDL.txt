@@ -1,0 +1,52 @@
+programa           	→ void main { declaraciones instrucciones }
+
+declaraciones     	→ declaración-variable declaraciones | ε
+
+declaración-variable 	→ tipo-vector id asignacion-declaración ; | 
+		     tipo-primitivo lista-identificadores ;
+
+tipo-primitivo      	→ int | float | boolean
+
+tipo-vector        	→ int [num] | float [num] | boolean [num]
+
+lista-identificadores 	→ id asignacion-declaración más-identificadores
+
+más-identificadores 	→ , id asignacion-declaración más-identificadores | ε
+
+asignacion-declaración→ = expresion-logica | ε
+
+instrucciones      	→ instruccion instrucciones | ε
+
+instruccion        	→ declaración-variable | variable = expresion-logica ; 	|
+                      	     if (expresion-logica) instruccion 	 	|
+                      	     if (expresion-logica) instruccion else instruccion	|
+                      	    while (expresion-logica) instruccion		|
+                      	    do instruccion while (expresion-logica) ;		|
+                      	    print (variable) ;				|
+                      	   { instrucciones }
+
+variable           	→ id | id [expresion]
+
+expresion-logica   	→ termino-logico expresion-logica'
+
+expresion-logica'  	→ or termino-logico expresion-logica' | ε
+
+termino-logico     	→ factor-logico termino-logico'
+
+termino-logico'    	→ and factor-logico termino-logico' | ε
+
+factor-logico      	→ not factor-logico | true | false | expresion-relacional
+
+expresion-relacional 	→ expresion operador-relacional expresion | expresion
+
+operador-relacional 	→ < | <= | > | >= | == | !=
+
+expresion          	→ termino expresion'
+
+expresion'         	→ + termino expresion' | - termino expresion' | ε
+
+termino            	→ factor termino'
+
+termino'           	→ * factor termino' | / factor termino' | % factor termino' | ε
+
+factor            	→ (expresion) | variable | num
