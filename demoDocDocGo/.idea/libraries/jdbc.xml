@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="jdbc">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.openjfx/packageJConnectorMySQL/lib" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$USER_HOME$/.openjfx/packageJConnectorMySQL/lib" recursive="false" />
+  </library>
+</component>
